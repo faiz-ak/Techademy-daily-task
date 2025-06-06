@@ -1,0 +1,17 @@
+echo "Enter numbers (space-separated):"
+read -a num  # read into array
+
+for n in "${num[@]}"; do
+  # Validate number: check if it contains only digits
+  if ! [[ "$n" =~ ^[0-9]+$ ]]; then
+    echo "Error: '$n' is not a valid number"
+    continue
+  fi
+
+  # Even or Odd check
+  if (( n % 2 == 0 )); then
+    echo "$n is Even"
+  else
+    echo "$n is Odd"
+  fi
+done

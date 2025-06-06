@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Bootsrap styling</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand-md bg-body-tertiary" style="padding: 1.2em 2em; position: fixed; top: 0; width: 100%; z-index: 1000;">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+  <span class="fs-2">logo</span>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <div class="w-100 d-flex flex-column flex-md-row justify-content-md-end align-items-start align-items-md-center gap-3 gap-md-5 mt-3 mt-md-0">
+ 
+        <ul class="navbar-nav d-flex flex-column flex-md-row align-items-start align-items-md-center gap-md-3 gap-2 mb-0">
+          <li class="nav-item">
+            <a style="font-size: 18px;" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a style="font-size: 18px;"  >About</a>
+          </li>
+          <li class="nav-item">
+            <a style="font-size: 18px;"  >Categories</a>
+          </li>
+          <li class="nav-item" >
+            <a  style="font-size: 18px;" >Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 gap-md-2">
+          <button type="button" class="btn btn-primary" >Logn</button>
+          <button type="button" class="btn btn-outline-primary">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-9 bg-primary text-white">
+      75%  Column
+    </div>
+    <div class="col-3 bg-secondary text-white">
+      25%  Column
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="p-3 bg-primary text-white">Column 1</div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="p-3 bg-secondary text-white">Column 2</div>
+    </div>
+  </div>
+</div>
+<!-- Style a mission statement with larger font size, bold styling, and centered alignment. -->
+<p class="fs-1 fw-bold text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe odio provident eligendi nihil laboriosam accusamus obcaecati amet culpa? Adipisci laudantium necessitatibus recusandae sunt est ex id provident repellat earum qui!</p>
+
+<!-- •	Adjust the text sizes and alignment so it is readable on all screen sizes using .fs-1, .fs-2, .fs-4.
+ -->
+<p class="fs-1 fs-md-2 fs-sm-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quibusdam voluptas deleniti facere ducimus incidunt impedit consequatur, unde explicabo, nostrum laudantium. Expedita voluptate maiores accusamus voluptates quaerat sapiente eum ipsum.</p>
+
+<!-- Design a submit button with btn-success and a hover effect -->
+<input type="text" id="name" style="padding: 0.3em 0.3em;">
+<button onclick="checkinput()" class="btn btn-primary">Submit Me</button>
+<!-- 
+•	Show an error message using Bootstrap alerts when invalid input is detected. -->
+
+<div id="generate"></div>
+
+
+<div class="container m-4" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">Registeration form</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Username</label>
+                <div class="input-group">
+  <span class="input-group-text" >@</span>
+        <input type="text" class="form-control" id="name" placeholder="Enter your Username" required
+        />
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com"  required
+        />
+      </div>
+      <div class="mb-3 ">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required
+        />
+
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+  </div>
+</body>
+<script>
+    const input=document.getElementById("name").value
+const gen = document.getElementById("generate")
+function checkinput(){
+    gen.innerHTML=``
+    if(input == ''){
+        gen.innerHTML =`
+       <div class="alert alert-danger" role="alert">
+ Please fill the name
+</div>
+        `
+    }
+}
+</script>
+</html>
