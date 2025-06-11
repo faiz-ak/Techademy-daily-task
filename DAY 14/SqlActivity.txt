@@ -1,0 +1,25 @@
+-- Activity: Create a STUDENTS table with fields: id, name, age, marks. Insert 5 records. Write queries to:
+ 
+-- Select all data
+-- Filter students with marks > 75
+-- Sort by age
+
+
+Create Table STUDENTS(
+      id INT PRIMARY KEY,
+      name VARCHAR(50),
+      age INT,
+      marks DECIMAL(10,2)
+);
+
+INSERT INTO STUDENTS(id, name, age, marks)
+VALUES
+(1,'Faizan', 22, 120),
+(2,'Rohit', 24, 100),
+(3,'Kishor', 21, 75),
+(4,'Maaz', 23, 80),
+(5,'Chirag', 21, 60);
+
+SELECT * FROM STUDENTS 
+WHERE marks > 75
+ORDER BY age DESC; 
