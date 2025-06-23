@@ -1,0 +1,101 @@
+Interfaces
+Activity: Payment Gateway System
+Task:
+ 
+Create an interface PaymentGateway with a method void processPayment(double amount)
+ 
+Implement the interface in two classes:
+ 
+CreditCardPayment
+ 
+UPIPayment
+ 
+Each class prints a different message when processPayment() is called
+ 
+Goal: Learn interface-based design and implementation
+ 
+ 
+2. Abstract Classes
+Activity: Appliance Controller
+Task:
+ 
+Create an abstract class Appliance with:
+ 
+Fields like brand, power
+ 
+An abstract method turnOn()
+ 
+A concrete method showSpecs()
+ 
+Create subclasses:
+ 
+Fan
+ 
+WashingMachine
+ 
+Implement turnOn() with specific messages for each
+ 
+Goal: Understand shared behavior and abstract methods in real-world examples
+ 
+ 
+3. Streams
+Activity: Book Library Filter
+Task:
+ 
+Create a Book class with fields: title, author, price, year
+ 
+Create a list of books
+ 
+Use Streams to:
+ 
+Filter books published after 2015
+ 
+Find the most expensive book
+ 
+List all titles in alphabetical order
+ 
+Goal: Practice filtering, sorting, and collecting using streams
+ 
+ 
+4. Lambda Expressions
+Activity: Math Operations with Lambdas
+Task:
+ 
+Create a functional interface MathOperation with method int operate(int a, int b)
+ 
+Use lambda expressions to define:
+ 
+Addition
+ 
+Subtraction
+ 
+Multiplication
+ 
+Division
+ 
+Create a method calculate(int a, int b, MathOperation op) to test them
+ 
+Goal: Practice functional interfaces and lambda syntax
+5. Date and Time API
+Activity: Project Timeline Tracker
+Task:
+ 
+Input a project start date (LocalDate)
+ 
+Add duration using plusWeeks(), plusDays()
+ 
+Print:
+ 
+Start date
+ 
+Expected end date
+ 
+Days remaining from today
+ 
+Example Output:
+ 
+Edit
+Start: 2025-06-01
+End: 2025-07-15
+Remaining: 32 days
+Goal: Work with LocalDate, arithmetic, and duration calculations
