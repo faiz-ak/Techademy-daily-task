@@ -1,0 +1,257 @@
+Software design principles are guidelines that help developers create clean, maintainable, and scalable software. Here are the different types of software design principles, categorized into core principles, SOLID principles, GRASP principles, and other best practices:
+
+🔹 1. Core Software Design Principles
+These are general principles that apply across all programming paradigms:
+
+Principle					Description
+Abstraction			Hiding complex details and showing only essential features. Helps manage complexity.
+Encapsulation			Bundling data and methods that operate on that data within a class, and restricting access to internal details.
+Modularity			Dividing software into independent modules with well-defined interfaces. Improves maintainability and testability.
+Separation of Concerns		Each part of the program should handle a distinct functionality. Example: UI vs business logic vs data access.
+High Cohesion			Elements within a module/class should be highly related.
+Low Coupling			Modules should have minimal dependency on one another.
+Reusability			Code should be written in a way that it can be reused in different contexts.
+
+🔹 2. SOLID Principles (when it is in a design /development phase of object oriented systems) Assigning responsibilities
+These are five object-oriented design principles introduced by Robert C. Martin:
+
+Principle	                              			Description
+S – Single Responsibility Principle (SRP)	A class should have only one reason to change.
+O – Open/Closed Principle (OCP)			Software entities should be open for extension but closed for modification.
+L – Liskov Substitution Principle (LSP)		Subtypes must be substitutable for their base types.
+I – Interface Segregation Principle (ISP)	No client should be forced to depend on methods it does not use.
+D – Dependency Inversion Principle (DIP)	High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+🔹 3. GRASP Principles (General Responsibility Assignment Software Patterns)
+These are 9 principles that guide object-oriented design: to create a clss / object of object oriented software.
+
+Principle				Description
+Information Expert	Assign responsibility to the class with the most information needed.
+Creator			A class that uses another class is responsible for its creation.
+Controller		Assign control of system events to a controller class.
+Low Coupling		Minimize dependencies between classes.
+High Cohesion		Keep related behaviors in a single class.
+Polymorphism		Use polymorphism to handle behavior that varies by type.
+Pure Fabrication	Create a class that doesn't represent a real-world concept to achieve better design.
+Indirection		Use an intermediary object to mediate between components.
+Protected Variations	Shield elements from the variations in other elements by using interfaces or abstract classes.
+
+🔹 4. Other Software Design Best Practices
+Principle					Description
+DRY (Don't Repeat Yourself)		Avoid duplication of logic and code.
+YAGNI (You Aren't Gonna Need It)	Don’t implement something until it’s necessary.
+KISS (Keep It Simple, Stupid)		Simpler designs are better and easier to maintain.
+Principle of Least Astonishment		Design should behave in a way that users expect.
+Design by Contract			Define precise interface specifications using preconditions, postconditions, and invariants.
+Fail Fast				Fail as early as possible to detect problems quickly.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction to UML (Unified Modeling Language)
+What is UML?
+UML (Unified Modeling Language) is a standardized modeling language used to visualize, specify, construct, and document the structure and behavior of software systems.
+It provides a set of diagrams and notations to model object-oriented systems during software development. UML is not a programming language, but it bridges the gap between system design and code.
+
+Objectives of UML:
+
+Model real-world systems visually
+Improve communication among stakeholders (developers, analysts, clients)
+Provide a blueprint for software construction
+Support software documentation and maintenance
+
+Types of UML Diagrams
+UML has 14 diagrams, broadly categorized into:
+
+1. Structural Diagrams (What the system is made of)
+Diagram							Description
+Class Diagram				Represents classes, attributes, methods, and relationships (most common)
+Object Diagram				Snapshot of instances of classes at a point in time
+Component Diagram			Models physical components like libraries or executables
+Deployment Diagram			Shows how software is deployed on hardware
+Package Diagram				Groups related classes or packages
+Composite Structure Diagram		Shows internal structure of a class
+Profile Diagram				Customizes UML for specific domains
+
+2. Behavioral Diagrams (How the system behaves)
+Diagram						Description
+Use Case Diagram			Represents user interactions with the system
+Sequence Diagram			Shows object interactions in time order
+Activity Diagram			Represents workflows and actions (like flowcharts)
+State Diagram				Models state transitions of an object
+Communication Diagram			Similar to sequence but focused on messages between objects
+Interaction Overview Diagram		High-level view of interactions
+Timing Diagram				Models time-dependent behavior
+
+Why Use UML?
+Benefit	Description
+Clarity	Simplifies understanding complex systems
+Standardization	Common language for developers, architects, and analysts
+Documentation	Helps maintain systems over time
+Planning	Aids in system design before implementation
+
+Basic UML Symbols
+Class: Rectangle with name, attributes, and methods
+
+Actor: Stick figure representing a user
+
+Association: Line connecting two classes
+
+Inheritance: Solid line with closed arrow
+
+Aggregation: Hollow diamond (whole-part relationship)
+
+Composition: Filled diamond (stronger whole-part relationship)
+
+Tools to Draw UML
+Lucidchart
+Draw.io
+StarUML
+Visual Paradigm
+Enterprise Architect
+
+UML Diagram Types
+UML diagrams are classified into two major categories:
+
+🔷 1. Structural Diagrams
+They model the static aspects of the system — like classes, objects, components, and deployment.
+
+Diagram						Description
+Class Diagram			Represents classes, attributes, methods, and relationships between them.
+Object Diagram			Shows real-time instances (objects) and their relationships.
+Component Diagram		Models physical components like libraries, executables, and their dependencies.
+Deployment Diagram		Shows how software is deployed on hardware (nodes, servers).
+Package Diagram			Organizes classes or components into packages (namespaces).
+Composite Structure Diagram	Internal structure of a class and how its parts interact.
+Profile Diagram			Extends UML for specific domains (custom stereotypes).
+
+🔷 2. Behavioral Diagrams
+They describe dynamic behavior — like workflows, interactions, and state changes.
+
+Diagram	                    			Description
+Use Case Diagram			Shows interactions between actors (users) and system use cases (functions).
+Sequence Diagram			Time-ordered flow of messages between objects to carry out functionality.
+Activity Diagram			Represents workflows, decisions, parallel activities — like flowcharts.
+State Diagram	        		Shows how an object changes states in response to events.
+Communication Diagram			Like sequence diagrams but focus on relationships and messages.
+Interaction Overview Diagram		High-level view combining multiple interactions or sequence flows.
+Timing Diagram				Shows object behavior over time — time-specific constraints and events.
+
+🔸 UML Diagram Elements
+UML diagrams use standard elements (symbols and notations) to describe systems.
+
+🔹 Common Elements in Structural Diagrams
+Element	Symbol  		Description
+Class			Rectangle with 3 compartments: Name, Attributes, Operations
+Interface		Similar to a class but only defines methods (no implementation)
+Association		Line connecting two elements showing a relationship
+Multiplicity		1, 0..1, *, etc. — defines how many objects participate in the relationship
+Generalization		Inheritance — line with a closed arrowhead pointing to parent class
+Aggregation		Hollow diamond — "has-a" relationship (weak ownership)
+Composition		Filled diamond — "part-of" relationship (strong ownership)
+Package			Folder icon used to group classes/interfaces
+
+🔹 Common Elements in Behavioral Diagrams
+Element						Description
+Actor			Stick figure representing a user or external system
+Use Case		Oval shape representing a user goal or function
+Message			Arrows in sequence diagrams showing communication between objects
+Activity		Rounded rectangle in activity diagrams (represents an action)
+Decision Node		Diamond shape — used for decision points in activity/state diagrams
+State			Rounded rectangle representing an object's state
+Transition		Arrows showing movement from one state/activity to another
+Lifeline		Vertical dashed line in sequence diagrams — shows object’s existence over time
+Execution 		Specification	Rectangle over lifeline — duration of an operation/message
+
+1. Class Diagram Example
+Represents the structure of a system — classes, attributes, methods, and relationships.
+
++---------------------+
+|     Student         |
++---------------------+
+| - id: int           |
+| - name: String      |
++---------------------+
+| +register()         |
+| +viewCourses()      |
++---------------------+
+
+          ▲
+          |
+          |
++----------------------+
+|     GraduateStudent  |
++----------------------+
+| - thesisTitle: String|
++----------------------+
+| +submitThesis()      |
++----------------------+
+
+Relationship:
+- Inheritance: GraduateStudent → Student
+-------------------------------------------------------------------------------------------------------------------------------------
+
+2. Use Case Diagram Example
+Represents interactions between actors (users) and the system's functionality.
+
+          +---------------------+
+          |      System         |
+          |---------------------|
+          |  (1) Register       |
+          |  (2) Login          |
+          |  (3) Enroll Course  |
+          +---------------------+
+
+    Actor: Student (stick figure)
+        |
+        |------------------> (1) Register
+        |------------------> (2) Login
+        |------------------> (3) Enroll Course
+
+------------------------------------------------------------------------------------------------------------------------
+
+3. Sequence Diagram Example
+Shows how objects interact in a time-sequenced manner.
+
+Student     System       Course
+   |           |            |
+   |--login()->|            |
+   |           |--verify--> |
+   |<--success-|            |
+   |--selectCourse()------->|
+   |           |            |--checkAvailability()--->|
+   |           |            |<--available-------------|
+   |<--------confirmation-----------------------------|
+
+--------------------------------------------------------------------------------------------------------------------------
+
+4. Activity Diagram Example
+Describes workflow or business logic like a flowchart.
+
+  [Start]
+     |
+[Login Page]
+     |
+[Validate Credentials]
+     |
+   /   \
+[Fail] [Success]
+   |       |
+[Show Error] 
+            |
+      [Dashboard]
+            |
+         [End]
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5. State Diagram Example
+Shows state transitions of an object.
+
+[Idle] --> [Logged In] --> [Enrolled] --> [Completed]
+     ^                                  |
+     |                                  v
+   [Logged Out] <-------------------- [Exit]
+
+
+
+

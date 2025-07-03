@@ -1,0 +1,227 @@
+https://livesql.oracle.com
+
+
+
+Introduction to PL/SQL
+PL/SQL (Procedural Language/Structured Query Language) is Oracle Corporation’s procedural extension of SQL used in Oracle databases.
+
+It allows you to write complex programs using:
+
+SQL statements,
+
+Variables and data types,
+
+Control structures (like loops, if-else),
+
+Exception handling.
+
+🧠 Why PL/SQL?
+Sql --- what to do it
+pl ---- how to do it
+SQL can only run one statement at a time.
+
+PL/SQL allows grouping of statements into blocks for:
+
+Logic
+Reusability
+Error handling
+Performance (fewer database calls)
+
+🧱 PL/SQL Block Structure
+PL/SQL code is written in blocks:
+
+DECLARE
+   -- Variable declarations (optional)
+BEGIN
+   -- SQL & PL/SQL statements
+EXCEPTION
+   -- Error handling (optional)
+END;
+Each block has three parts:
+
+Declaration (optional): Define variables and constants.
+
+Execution: Contains main code (SQL and PL/SQL).
+
+Exception Handling (optional): Handles errors at runtime.
+
+🔁 Example:
+DECLARE
+   message VARCHAR2(50);
+BEGIN
+   message := 'Hello from PL/SQL!';
+   DBMS_OUTPUT.PUT_LINE(message);
+END;
+✅ Key Features of PL/SQL:
+Feature	Description
+Block-structured	Code is organized in blocks
+Procedural	Supports logic like if-else, loops
+Integrated with SQL	Can use SELECT, INSERT, UPDATE, DELETE
+Portable	Runs on any Oracle DB
+Error handling	Built-in exception handling
+
+---------------------------------------------------------------------------------------------------
+
+PL/SQL Variables and Data Types
+✅ Declaring Variables
+Variables are declared in the DECLARE section of a PL/SQL block.
+
+DECLARE
+   name      VARCHAR2(30);
+   age       NUMBER;
+   salary    NUMBER(8,2);
+   hire_date DATE;
+BEGIN
+   -- Assigning values
+   name := 'Srujana';
+   age := 25;
+   salary := 50000.50;
+   hire_date := SYSDATE;
+
+   DBMS_OUTPUT.PUT_LINE('Name: ' || name);
+   DBMS_OUTPUT.PUT_LINE('Age: ' || age);
+   DBMS_OUTPUT.PUT_LINE('Salary: ' || salary);
+   DBMS_OUTPUT.PUT_LINE('Hire Date: ' || hire_date);
+END;
+
+Common Data Types in PL/SQL
+Data Type	Description			Example
+VARCHAR2(n)	Variable-length 	string (max 4000 chars)	VARCHAR2(50)
+CHAR(n) 	Fixed-length 		string	CHAR(10)
+NUMBER(p,s)	Numeric values with precision and scale	NUMBER(6,2)
+DATE		Date and time			SYSDATE
+BOOLEAN		Logical TRUE/FALSE/NULL	status BOOLEAN
+%TYPE		Inherit type from existing variable/table	emp_name employees.name%TYPE
+
+-----------------------------------------------------------------------------------------------------------------
+
+🔁 Control Structures in PL/SQL
+PL/SQL supports control flow statements to make decisions and repeat actions.
+
+🔹 1. IF Statements
+DECLARE
+   marks NUMBER := 85;
+BEGIN
+   IF marks >= 90 THEN
+      DBMS_OUTPUT.PUT_LINE('Grade: A');
+   ELSIF marks >= 75 THEN
+      DBMS_OUTPUT.PUT_LINE('Grade: B');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Grade: C');
+   END IF;
+END;
+🔹 2. CASE Statement
+
+DECLARE
+   day_num NUMBER := 3;
+BEGIN
+   CASE day_num
+      WHEN 1 THEN DBMS_OUTPUT.PUT_LINE('Monday');
+      WHEN 2 THEN DBMS_OUTPUT.PUT_LINE('Tuesday');
+      WHEN 3 THEN DBMS_OUTPUT.PUT_LINE('Wednesday');
+      ELSE DBMS_OUTPUT.PUT_LINE('Invalid Day');
+   END CASE;
+END;
+
+ 3. Loops in PL/SQL
+ a. Simple LOOP
+DECLARE
+   i NUMBER := 1;
+BEGIN
+   LOOP
+      EXIT WHEN i > 5;
+      DBMS_OUTPUT.PUT_LINE('Count: ' || i);
+      i := i + 1;
+   END LOOP;
+END;
+
+ b. WHILE LOOP
+DECLARE
+   i NUMBER := 1;
+BEGIN
+   WHILE i <= 5 LOOP
+      DBMS_OUTPUT.PUT_LINE('WHILE Loop Count: ' || i);
+      i := i + 1;
+   END LOOP;
+END;
+
+ c. FOR LOOP
+
+BEGIN
+   FOR i IN 1..5 LOOP
+      DBMS_OUTPUT.PUT_LINE('FOR Loop Count: ' || i);
+   END LOOP;
+END;
+
+----------------------------------------------------------------------------------------------------------------------
+
+PL/SQL provides a way to handle runtime errors gracefully using the EXCEPTION block.
+
+Structure of Exception Handling
+BEGIN
+   -- Code that might cause an error
+EXCEPTION
+   WHEN <exception_name> THEN
+      -- Handling code
+END;
+Types of Exceptions
+Predefined Exceptions – Built-in by Oracle
+
+User-Defined Exceptions – You define and raise them manually
+
+ 1. Predefined Exceptions
+Exception Name	Error Condition
+NO_DATA_FOUND	SELECT returns no rows
+ZERO_DIVIDE	Division by zero
+TOO_MANY_ROWS	SELECT returns more than one row
+INVALID_NUMBER	Conversion of string to number failed
+OTHERS	Catches any unhandled exception
+
+ Example with Predefined Exception
+DECLARE
+   v_name VARCHAR2(50);
+BEGIN
+   -- Suppose no such ID exists
+   SELECT first_name INTO v_name FROM employees WHERE employee_id = 9999;
+
+   DBMS_OUTPUT.PUT_LINE('Employee Name: ' || v_name);
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('No employee found with that ID.');
+   WHEN TOO_MANY_ROWS THEN
+      DBMS_OUTPUT.PUT_LINE('More than one employee found.');
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END;
+
+ 2. User-Defined Exceptions
+You can define and raise your own exceptions using:
+
+EXCEPTION keyword (to declare)
+
+RAISE statement (to trigger it)
+
+ Example with User-Defined Exception
+DECLARE
+   insufficient_salary EXCEPTION;
+   salary NUMBER := 20000;
+BEGIN
+   IF salary < 30000 THEN
+      RAISE insufficient_salary;
+   END IF;
+
+   DBMS_OUTPUT.PUT_LINE('Salary is acceptable.');
+
+EXCEPTION
+   WHEN insufficient_salary THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Salary is too low!');
+END;
+🧰 Useful Functions in Exception Block
+SQLCODE: Returns numeric error code
+
+SQLERRM: Returns error message
+
+EXCEPTION
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error Code: ' || SQLCODE);
+      DBMS_OUTPUT.PUT_LINE('Error Message: ' || SQLERRM);
