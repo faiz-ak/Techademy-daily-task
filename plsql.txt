@@ -1,0 +1,145 @@
+set Serveroutput on
+ 
+BEGIN
+ 
+	Dbms_output.put_line('Welcome to Learn PL/SQL');
+ 
+END;
+
+/
+ 
+--To declare variables
+ 
+declare
+ 
+	a int :=10;  --Initialized value
+
+	b int :=&b; --Taking input value
+
+	c int;
+ 
+ 
+begin
+ 
+	c:=a+b;
+
+	dbms_output.put_line('a value :'||a);
+
+	dbms_output.put_line('b value :'||b);
+
+	dbms_output.put_line('Addtion  :'||c);
+ 
+ 
+end;
+ 
+ 
+ 
+--To insert a record 
+
+--Example for %Type
+ 
+declare
+ 
+	id STUDENT.Stuid%type:=&studentId;
+
+	sna student.stuname%type:='&studentname';
+
+	cor student.course%type:='&course';
+
+	fee student.fees%type:=&fee;
+ 
+begin
+ 
+	insert into student values(id,sna,cor,fee);
+ 
+	dbms_output.put_line('Record Inserted Successfully....');
+ 
+ 
+end;
+
+/
+
+ 
+--To delete record based on student id
+
+--Example for %Type
+ 
+declare
+ 
+	id STUDENT.Stuid%type:=&studentId;
+ 
+begin
+ 
+	delete from student where stuid=id;
+ 
+	dbms_output.put_line('Record deleted Successfully....');
+ 
+ 
+end;
+
+/
+
+ 
+--Example for %RowTYPE
+ 
+declare
+ 
+	eno emp.empno%type:=&eno;
+
+	i emp%rowtype;
+
+begin
+ 
+	select * into i from emp where empno=eno;
+ 
+	dbms_output.put_line('Employ Details are ');
+
+	dbms_output.put_line('=======================');
+
+	dbms_output.put_line('Ename  :'||i.ename);
+
+	dbms_output.put_line('Job :'||i.job);
+
+	dbms_output.put_line('Salary :'||i.sal);
+ 
+ 
+end;
+
+/
+
+
+--Using conditional statements (if-else) 
+--If Job is MANAGER OR PRESIDENT THEN increment by salary 10%
+--Otherwise increment by salary 5%
+--and also display the details of an employee
+ 
+DECLARE
+ 
+	eno emp.empno%type:=&eno;
+	i emp%rowtype;
+ 
+BEGIN
+ 
+		select * into i from emp where empno=eno;
+ 
+		if(i.job in('MANAGER','PRESIDENT'))then
+		update emp set sal=i.sal+i.sal*10/100 where empno=eno;
+		dbms_output.put_line('Salary is updated by 10% ');		
+		else
+		update emp set sal=i.sal+i.sal*5/100 where empno=eno;
+		dbms_output.put_line('Salary is updated by 5% ');
+		end if;
+ 
+		select * into i from emp where empno=eno;
+ 
+		dbms_output.put_line('Empno  :'||i.empno);
+		dbms_output.put_line('Empname :'||i.ename);
+		dbms_output.put_line('Emp Job :'||i.job);
+		dbms_output.put_line('Emp Salary :'||i.sal);
+ 
+ 
+	
+END;
+/
+
+ 

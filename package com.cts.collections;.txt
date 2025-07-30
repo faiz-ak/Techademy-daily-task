@@ -1,0 +1,119 @@
+package com.cts.collections;
+ 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+ 
+public class ArrayListDemo {
+ 
+	public static void main(String[] args)
+	{
+ 
+		ArrayList<String> al=new ArrayList<>();
+ 
+		System.out.println("ArrayList Elements are :"+al);
+		
+		System.out.println("ArrayList Size :"+al.size());
+		
+		al.add("Rahul");
+		al.add("Sam");
+		al.add("Shiva");
+		al.add("X");
+		
+		System.out.println("ArrayList Elements are :"+al);
+		System.out.println("ArrayList Size :"+al.size());
+		
+		al.remove(3);
+		al.remove("Sam");
+		
+		System.out.println("ArrayList Elements are :"+al);
+		System.out.println("ArrayList Size :"+al.size());
+		
+		al.add(1, "Hello");
+ 
+		System.out.println("ArrayList Elements are :"+al);
+		System.out.println("ArrayList Size :"+al.size());
+		
+		System.out.println("Get the  1st Position object :"+al.get(1));
+		
+		al.set(1, "NewElement");
+		
+		System.out.println("ArrayList Elements are :"+al);
+		System.out.println("ArrayList Size :"+al.size());
+		
+		System.out.println("Get the  1st Position object :"+al.get(1));
+		
+		System.out.println("Rahul object is Exists :"+al.contains("Rahul"));
+ 
+ 
+		Iterator<String> i=al.iterator();
+System.out.println("Using Iterator ArrayList Elements are :");
+		while(i.hasNext())
+		{
+			System.out.println(i.next());
+		}
+		
+		ListIterator<String> ii=al.listIterator();
+		System.out.println("Using ListIterator ArrayList Elements are (FIFO) :");
+		while(ii.hasNext())
+		{
+			System.out.println(ii.next());
+		}
+		
+		System.out.println("Using ListIterator ArrayList Elements are(LIFO) :");
+		while(ii.hasPrevious())
+		{
+			System.out.println(ii.previous());
+		}
+		
+		
+		
+		
+	}
+ 
+}
+
+
+
+package com.cts.collections;
+ 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+ 
+public class MapDemo {
+ 
+	public static void main(String[] args) {
+ 
+	    HashMap<Integer, String> hmap = new HashMap<>();
+ 
+	    //key and value pairs
+ 
+	    hmap.put(101, "Chaitanya");
+	    hmap.put(105, "Derick");
+	    hmap.put(111, "Logan");
+	    hmap.put(120, "Paul");
+ 
+	    //print HashMap elements
+	    Set set = hmap.entrySet();
+ 
+	    Iterator iterator = set.iterator();
+	    while(iterator.hasNext())
+	    {
+	      Map.Entry m = (Map.Entry)iterator.next();
+	    
+	  System.out.print("key is: "+ m.getKey() + " & Value is: ");
+ 
+	      System.out.println(m.getValue());
+	    }
+ 
+ 
+	}
+ 
+}
+ 
+ 
+ 
